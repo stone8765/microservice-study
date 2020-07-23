@@ -6,11 +6,23 @@ namespace IdenttiyServerCenter
 {
     public class Config
     {
+
+        public static IEnumerable<ApiScope> GetScopes()
+        {
+            return new List<ApiScope>
+            {
+                new ApiScope("api", "My Api")
+            };
+        }
+
         public static IEnumerable<ApiResource> GetResources()
         {
             return new List<ApiResource>
             {
-                new ApiResource("api","My Api")
+                new ApiResource("api", "My Api") // 默认resource会设置到和他一样名字的scope中
+                {
+                    Scopes = { "api" }
+                }
             };
         }
 
