@@ -30,9 +30,10 @@ namespace IdenttiyServerCenter
                 .AddDeveloperSigningCredential()
                 .AddInMemoryApiScopes(Config.GetScopes())
                 .AddInMemoryApiResources(Config.GetResources())
-                .AddInMemoryClients(Config.GetClients());
+                .AddInMemoryClients(Config.GetClients())
+                .AddTestUsers(Config.GetTestUsers());
             services.AddControllers();
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

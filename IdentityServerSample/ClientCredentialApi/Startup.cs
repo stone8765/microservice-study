@@ -26,12 +26,18 @@ namespace ClientCredentialApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAuthentication("Bearer")
-                .AddIdentityServerAuthentication(options =>
+                .AddJwtBearer(options =>
                 {
                     options.Authority = "http://localhost:5000";
                     options.RequireHttpsMetadata = false;
-                    options.ApiName = "api";
+                    options.Audience = "api";
                 });
+                // .AddIdentityServerAuthentication(options =>
+                // {
+                //     options.Authority = "http://localhost:5000";
+                //     options.RequireHttpsMetadata = false;
+                //     options.ApiName = "api";
+                // });
 
             services.AddControllers();
         }
@@ -54,7 +60,7 @@ namespace ClientCredentialApi
             {
                 endpoints.MapControllers();
             });
-            
+
         }
     }
 }
