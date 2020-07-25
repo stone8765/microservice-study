@@ -47,6 +47,7 @@ namespace IdenttiyServerCenter
                     ClientSecrets = {
                         new Secret("secret".Sha256())
                     },
+                    RequireClientSecret = false,
                     AllowedScopes = {"api"}
                 }
             };
