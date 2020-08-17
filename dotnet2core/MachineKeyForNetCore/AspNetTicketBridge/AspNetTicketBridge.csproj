@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Dariel Marlow</Authors>
+    <Company></Company>
+    <Description>Decrypts MachineKey protected AuthenticationTicket objects created by ASP.NET to be used in ASP.NET Core.</Description>
+    <PackageProjectUrl>https://github.com/dmarlow/AspNetTicketBridge</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/dmarlow/AspNetTicketBridge.git</RepositoryUrl>
+    <Version>1.6.0</Version>
+    <PackageReleaseNotes>Support for signing algorithms without validation key, like SHA1</PackageReleaseNotes>
+    <AssemblyVersion>1.6.0.0</AssemblyVersion>
+    <FileVersion>1.6.0.0</FileVersion>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>AspNetTicketBridge.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="AspNetTicketBridge.Strong.Signing.snk" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Abstractions" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.0.0" />
+  </ItemGroup>
+
+</Project>
